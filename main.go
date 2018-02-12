@@ -37,6 +37,7 @@ func main() {
 					w.WriteHeader(http.StatusNotFound)
 					json.NewEncoder(w).Encode(map[string]string{"status": "400", "error": fmt.Sprintf("could find file: %v", err)})
 				} else {
+					log.Printf(body.Filename)
 					err := os.Chtimes(body.Filename, time.Now(), time.Now())
 					if err != nil {
 						w.WriteHeader(http.StatusInternalServerError)
