@@ -4,6 +4,11 @@ services:
 script:
 - echo $DOCKER_PASSWORD | docker login -u $DOCKER_USERNAME --password-stdin
 - docker build -t klumhru/file-toucher:latest .
-- docker tag klumhru/file-toucher:latest klumhru/file-toucher:$(git rev-parse --short HEAD)
+- docker tag klumhru/file-toucher:latest klumhru/file-toucher:$(git rev-parse --short
+  HEAD)
 - docker push klumhru/file-toucher:latest
 - docker push klumhru/file-toucher:$(git rev-parse --short HEAD)
+env:
+  global:
+  - secure: XYUDnNh2KHigvwG655PEFiDB90WIwNc24p36dzFq+rKoWwUpUeDp9eZfUcr24jD9jDEwX+a24pkRrQyW5XFoz3mn3kWX3p1Qz25SsgxjfTN4neGHwKbVXdcgTcgSjK4gqZAHo2MrDbHXVcjzVVFAdnkfgz4ISntKn6Hsh4Wh0N3Y2hqkuZJUuRmd5j1hdWeZmueSrnEZxx1CD9t3/FNkgqD+G6qxXGezRAvJmlcMj7wqS2E2vHz2H4OrIH1aL8VheEcghNlyLtve+1fJ1FyLFsR5z58uOYNoZLeZrzIuD1nWT2LhOm0moy6FHB+gmCbMPFLb6NqnwRt3s33SH/DF4h7ppi3/JJAim924zafICdovCITDFmFZ9dCOiWRTZt375aTiKi1DEJMcy7MUfMBu7LZ99e+usyLmWjLAplxehDCUYKFuuclRoTmuTABp5XV5ruXyZBhy4HMH+rfujBbYRIev18O90Oj8+NIwsKG/Skrs9EBqZnXduRpQaNJCfqLMBItCuXG6O58uu4T1qL6vXY46x2S0gU7ktxm6yWX8xNOaTZVqB1TyDkEntJdcFxKujX2nbFMZphpyz5GqtZIZR80eVgpEhj63sD94Qi9PslqFJ0lhVUV6L+FiMgJX/CxNKA3HOC0J0FeYHvtkCTknX0IhgbO60rfKWB+S9l5Vszw=
+  - secure: hASvdpDSvA01j72HtyZ9FsUq6KHa8EZcwFa/WfPlXi3gi/y+J7dtZa8HAph5GEY97apA5zhTocNbcCLCnZU9/Jak6gf8QjTv7ybi7y3GEIVMnmfsMrZSrTKgsgy6m+TfApXtGpkqwO8XuAbQ/xv5uVj+LekYAbjo5lIyDM2GJCcMck6MLs55Xn/4wuns3vr1Ik/+D+1FkIcUXINlZW7TpCGsacqk0jKWWgpuc5ZqAga1CePA5l3G//PDJdNriZM285tJypFbL9hqN7n5Hu7LTc6TtYITF33660CVywXpacalv8h71vwFDjYSwlukAFmSrxXeQ5DD9rPY7wwVbEgKvWv3LgepImvwvEVcAgrghy0HljqBvTBo8PToP5nppdL0M8KZlfbUwfBq03ZiVlRAqRhbKi+Hsz1I2T2AkceUPbtijZtVG/meijEYQ3GSITM76/7D92L/0+mJkTevkQdcWZ8AjthcMMoEEzLiUTP2DWU05jo1ZLqYn4af1Pv+ofYb/rGWlumUXvOLpccDdgaapkJMNQaNcjXbe2KLmaWfAhjxuyYWiBChC/timGLlL5T7sxW60G6Aryrpnsu33vc+8SHakiaTweKZRmbYOosm1cnt3pUoP3mOCefHNVqH5dvDi6jZ/xuYKA851+WwGxAAoPBbuoNHvVdOgpCVg4M+UD8=
