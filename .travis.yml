@@ -1,0 +1,9 @@
+language: go
+services:
+- docker
+script:
+- echo $DOCKER_PASSWORD | docker login -u $DOCKER_USERNAME --password-stdin
+- docker build -t klumhru/file-toucher:latest .
+- docker tag klumhru/file-toucher:latest klumhru/file-toucher:$(git rev-parse --short HEAD)
+- docker push klumhru/file-toucher:latest
+- docker push klumhru/file-toucher:$(git rev-parse --short HEAD)
